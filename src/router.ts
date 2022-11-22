@@ -7,7 +7,7 @@ const router = Router();
 
 router.get("/product", (req, res) => {
   res.json({
-    msg: "hello",
+    msg: req.ssh,
   });
 });
 router.get("/product/:id", () => {});

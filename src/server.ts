@@ -4,6 +4,14 @@ import morgan from "morgan";
 const app = express();
 
 app.use(morgan("dev"));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+app.use((req, res, next) => {
+  req.ssh = "secret";
+
+  next();
+});
 
 app.get("/", (req, res) => {
   console.log("hello");
